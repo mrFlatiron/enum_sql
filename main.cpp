@@ -1,4 +1,5 @@
 #include <iostream>
+
 enum class test_enum
 {
   id,

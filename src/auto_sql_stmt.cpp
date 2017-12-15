@@ -124,14 +124,13 @@ namespace enum_sql
 
         if (m_status != SQLITE_OK)
           {
-            const char *out = sqlite3_errmsg (*m_db);
             ENUM_SQL_DEBUG_PAUSE ("Something went wrong");
             return false;
           }
         m_is_prepared = false;
         return true;
       }
-    return false;
+    return true;
   }
 
   bool Auto_stmt::need_finalize () const
