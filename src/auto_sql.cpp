@@ -51,7 +51,7 @@ namespace enum_sql
         m_last_error = sqlite3_open_v2 (m_filename.c_str (), &m_handle, SQLITE_OPEN_READWRITE, nullptr);
         break;
       case SOP::COUNT:
-        DEBUG_PAUSE ("Shouldn't happen");
+        ENUM_SQL_DEBUG_PAUSE ("Shouldn't happen");
         return false;
       }
     if (m_handle && m_last_error == SQLITE_OK)
@@ -88,14 +88,14 @@ namespace enum_sql
   {
     if (!is_open ())
       {
-        DEBUG_PAUSE ("Not open");
+        ENUM_SQL_DEBUG_PAUSE ("Not open");
         return sql_data_type::Null;
       }
     char const *buf;
     if (SQLITE_OK != sqlite3_table_column_metadata (m_handle, NULL, table.c_str (), column.c_str (),
                                                     &buf, NULL, NULL, NULL, NULL))
       {
-        DEBUG_PAUSE ("Error");
+        ENUM_SQL_DEBUG_PAUSE ("Error");
         return sql_data_type::Null;
       }
 

@@ -4,17 +4,17 @@
 #ifdef __GNUC__
 
   #include <csignal>
-  #define DEBUG_PAUSE(reason) (std::raise (SIGTRAP));
+  #define ENUM_SQL_DEBUG_PAUSE(reason) (std::raise (SIGTRAP));
 
 #else
 
   #ifdef __WIN32__
 
-    #define DEBUG_PAUSE(reason) (__debugbreak ());
+    #define ENUM_SQL_DEBUG_PAUSE(reason) (__debugbreak ());
 
   #else
 
-    #define DEBUG_PAUSE(reason)
+    #define ENUM_SQL_DEBUG_PAUSE(reason)
 
   #endif //__WIN32__
 

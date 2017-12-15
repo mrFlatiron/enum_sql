@@ -4,11 +4,14 @@
 #include "src/common/enum_misc.h"
 #include <bitset>
 
+namespace enum_sql
+{
+
 template<typename Enum, typename = use_if_enum<Enum>>
-class enum_bitset : private std::bitset<static_cast<size_t> (Enum::COUNT)>
+class enum_bitset : private std::bitset<static_cast<size_t> (enum_sql::enum_end (Enum ()))>
 {
   using self = enum_bitset<Enum>;
-  using base = std::bitset<static_cast<size_t> (Enum::COUNT)>;
+  using base = std::bitset<static_cast<size_t> (enum_end (Enum ()))>;
   public:
   enum_bitset () {}
 
@@ -27,5 +30,5 @@ class enum_bitset : private std::bitset<static_cast<size_t> (Enum::COUNT)>
   self &operator&= (const self &rhs) { base::operator&= (static_cast<const base &> (rhs)); return *this; }
   self &operator^= (const self &rhs) { base::operator^= (static_cast<const base &> (rhs)); return *this; }
 };
-
+}
 #endif // ENUM_BITSET_H

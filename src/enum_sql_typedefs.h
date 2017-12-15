@@ -32,7 +32,7 @@ namespace enum_sql
         return "BLOB";
 
       case sql_data_type::COUNT:
-        DEBUG_PAUSE("Shouldn't happen");
+        ENUM_SQL_DEBUG_PAUSE("Shouldn't happen");
         return "";
       }
     return "";

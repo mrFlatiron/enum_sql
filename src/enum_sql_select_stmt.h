@@ -153,7 +153,7 @@ namespace enum_sql
         case sql_data_type::Null:
           return any ();
         case sql_data_type::COUNT:
-          DEBUG_PAUSE ("Shouldn't happen");
+          ENUM_SQL_DEBUG_PAUSE ("Shouldn't happen");
           return any ();
         }
       return any ();
@@ -186,7 +186,7 @@ namespace enum_sql
         case SQLITE_ROW:
           return step_status::ROW;
         case SQLITE_OK:
-          DEBUG_PAUSE ("Shouldn't happen");
+          ENUM_SQL_DEBUG_PAUSE ("Shouldn't happen");
           return step_status::DONE;
         }
       return step_status::FAIL;

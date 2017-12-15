@@ -34,7 +34,7 @@ namespace enum_sql
       case sql_insert_policy::abort:
         return "ABORT";
       case sql_insert_policy::COUNT:
-        DEBUG_PAUSE ("Shouldn't happen");
+        ENUM_SQL_DEBUG_PAUSE ("Shouldn't happen");
         return "";
       }
     return "";

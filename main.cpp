@@ -1,14 +1,21 @@
 #include <iostream>
-
-#include "src/enum_sql.h"
-
 enum class test_enum
 {
   id,
   title,
   desc,
-  COUNT
+  TEST_END
 };
+
+namespace enum_sql
+{
+  constexpr test_enum enum_end (test_enum) {return test_enum::TEST_END;}
+}
+
+#include "src/enum_sql.h"
+
+
+
 
 int main(int argc, char *argv[])
 {
@@ -19,7 +26,7 @@ int main(int argc, char *argv[])
 
     if (!db.is_open ())
       {
-        DEBUG_PAUSE ("Failed to open");
+        ENUM_SQL_DEBUG_PAUSE ("Failed to open");
         return 0;
       }
 
